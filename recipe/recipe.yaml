@@ -1,6 +1,6 @@
 context:
   name: arbalister
-  version: "0.1.0"
+  version: "0.2.0"
   python_min: "3.12"
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 0d26655117a3d545bd0397a6d46100d65fb555643fa8e7e0c4262358ab17c65f
+  sha256: 6065df0c96db99304c41ec1d5e04e9a27d225139dc3610597c12424c8a191e6e
 
 build:
   number: 0
@@ -40,13 +40,16 @@ tests:
   # Jupyterlab, despite needed for this import should not be a dependency since it is typically
   # it that is doing the loading
   - script:
-      - python -c "import arbalister"
+      - python -c "import arbalister; print('Python arbalister import sucessful');"
       - pip check
     requirements:
       run:
         - python ${{ python_min }}.*
         - pip
         - jupyterlab >=4.5
+        # TODO Were not properly marked as optional in 0.2.0 but were handled as such
+        - adbc-driver-manager
+        - adbc-driver-sqlite
 
 about:
   homepage: https://github.com/QuantStack/Arbalister/
