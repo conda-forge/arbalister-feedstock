@@ -40,13 +40,16 @@ tests:
   # Jupyterlab, despite needed for this import should not be a dependency since it is typically
   # it that is doing the loading
   - script:
-      - python -c "import arbalister"
+      - python -c "import arbalister; print('Python arbalister import sucessful');"
       - pip check
     requirements:
       run:
         - python ${{ python_min }}.*
         - pip
         - jupyterlab >=4.5
+        # TODO Were not properly marked as optional in 0.2.0 but were handled as such
+        - adbc-driver-manager
+        - adbc-driver-sqlite
 
 about:
   homepage: https://github.com/QuantStack/Arbalister/
