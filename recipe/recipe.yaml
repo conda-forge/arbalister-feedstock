@@ -1,6 +1,6 @@
 context:
   name: arbalister
-  version: "0.2.0"
+  version: "0.2.1"
   python_min: "3.12"
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 6065df0c96db99304c41ec1d5e04e9a27d225139dc3610597c12424c8a191e6e
+  sha256: eccbf3abeede086cef7ae5582bf0c2dab12634fdb99e332435846d0c240aee94
 
 build:
   number: 0
